@@ -1,0 +1,39 @@
+{% extends "base" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+{% block title %}Index{% endblock title %}
+{% block content %}
+<div class="mt-5">
+    <h1>Login</h1>
+    <form id="login-form" method="POST" action="/login">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a href="/register" class="btn btn-link">Register</a>
+    </form>
+</div>
+
+{% endblock content %}
+{% block footer %}
+{{ super() }}
+<script>
+    $(document).ready(function() {
+        $('#login-form').submit(function(event) {
+            const email = $('#email').val();
+            const password = $('#password').val();
+            if (email === '' || password === '') {
+                alert('Both fields are required.');
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+{% endblock footer %}

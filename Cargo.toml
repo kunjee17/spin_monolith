@@ -1,0 +1,21 @@
+[package]
+name = "spin-monolith"
+authors = ["kunjee17"]
+description = ""
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow = "1"
+spin-sdk = "3.0.1"
+tera = "1"
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+serde_urlencoded = "0"
+uuid = { version = "1", features = ["v4"] }
+
+[workspace]
+members = ["tera_parser"]

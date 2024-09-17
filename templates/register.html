@@ -1,0 +1,46 @@
+{% extends "base" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+{% block title %}Register{% endblock title %}
+{% block content %}
+<div class="mt-5">
+    <h1>Register</h1>
+    <form id="register-form" method="POST" action="/register">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="mb-3">
+            <label for="confirm-password" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+        <a href="/" class="btn btn-link">Login</a>
+    </form>
+</div>
+{% endblock content %}
+{% block footer %}
+{{ super() }}
+<script>
+    $(document).ready(function() {
+        $('#register-form').submit(function(event) {
+            const email = $('#email').val();
+            const password = $('#password').val();
+            const confirmPassword = $('#confirm-password').val();
+            if (email === '' || password === '' || confirmPassword === '') {
+                alert('All fields are required.');
+                event.preventDefault();
+            } else if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+{% endblock footer %}
