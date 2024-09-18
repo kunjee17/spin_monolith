@@ -19,13 +19,11 @@ It will watch current directory and run the spin applications
 
 --------- 
 
-In new tab, go to tera_parser project and run
+## Spin.toml
+`files = ["templates/**/*.html"]`
+is important as it will tell which files needed to be included in wasm application.
 
-```bash
-cargo watch -w ../templates -x run
-```
-It will watch the templates directory and create templates.rs file in src directory. 
-It is collection of string based templates that can be used from tera. 
-
-Once strings are created from the html files, tera will take over from there and everything that can be 
-done with tera can be done here. All other features are basically age-old http. Like once user login it will session cookie. And it will be checked in products page. 
+## Application
+- Register email is doing nothing but displaying email and password. If confirm password is not same as password, it will show error.
+- Login email is taking email and password and create a session cookie.
+- Product page will display all products if cookie is present.
