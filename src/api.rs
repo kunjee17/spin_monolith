@@ -39,7 +39,7 @@ fn create_response_success(body: String) -> Response {
 pub fn get_index(_req: Request, _params: Params) -> anyhow::Result<impl IntoResponse> {
     let tera = get_tera()?;
     let context = tera::Context::new(); // This might be JSON as well
-    Ok(create_response_success(tera.render("index", &context)?))
+    Ok(create_response_success(tera.render("index.html", &context)?))
 }
 
 pub fn post_login(req: Request, _params: Params) -> anyhow::Result<impl IntoResponse> {
@@ -73,7 +73,7 @@ pub fn post_login(req: Request, _params: Params) -> anyhow::Result<impl IntoResp
 pub fn get_register(_req: Request, _params: Params) -> anyhow::Result<impl IntoResponse> {
     let tera = get_tera()?;
     let context = tera::Context::new(); // This might be JSON as well
-    Ok(create_response_success(tera.render("register", &context)?))
+    Ok(create_response_success(tera.render("register.html", &context)?))
 }
 
 pub fn post_register(req: Request, _params: Params) -> anyhow::Result<impl IntoResponse> {
@@ -100,7 +100,7 @@ pub fn get_product(req: Request, _params: Params) -> anyhow::Result<impl IntoRes
             let tera = get_tera()?;
             let mut context = tera::Context::new();
             context.insert("products", &get_products());
-            Ok(create_response_success(tera.render("product", &context)?))
+            Ok(create_response_success(tera.render("product.html", &context)?))
         },
     )
 }

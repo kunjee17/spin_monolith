@@ -18,4 +18,3 @@ serde_urlencoded = "0"
 uuid = { version = "1", features = ["v4"] }
 
 [workspace]
-members = ["tera_parser"]
