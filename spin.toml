@@ -11,9 +11,9 @@ route = "/..."
 component = "spin-monolith"
 
 [component.spin-monolith]
-source = "target/wasm32-wasi/release/spin_monolith.wasm"
+source = "target/wasm32-wasip1/release/spin_monolith.wasm"
 allowed_outbound_hosts = []
 files = ["templates/**/*.html"]
 [component.spin-monolith.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
